@@ -24,5 +24,5 @@ def prod(A,B):
                 C[i][j] +=  A[i][k] * B[k][j]   #O(1) * p * m * n
     return C                                    #O(1)
 
-#Tsomma = O(m * n * p)
-#Ssomma = O(m * n)
+#Tprod = O(m * n * p)
+#Sprod = O(m * n)
