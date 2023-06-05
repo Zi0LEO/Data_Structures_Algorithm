@@ -17,8 +17,21 @@ def insertionSort(A):
 
 # O(n) <= TinsertionSort <= O(n^2)
 
-def selectionSort(A)
+def selectionSort(A):
+    for i in range(len(A) - 1):         #O(n)
+        minp = i
+        for j in range(i + 1, len(A)):  #*
+            if A[j] < A[i]:             #O(1)
+                minp = j
+            A[i], A[minp] = A[minp], A[i] #O(1)
+
+#*Questo controllo andrà svolto sempre per intero, la sua complessità perciò sarà la sommatoria di k che va da
+#1 a n - 1, dove n è la lunghzza della lista.
+#T(n) = O(n^2)
+
+
+
 list = [6,3,8,2,5,9,1,4]
 print(list)
-insertionSort(list)
+selectionSort(list)
 print(list)
