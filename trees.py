@@ -72,19 +72,19 @@ def leftRotate(A):
     return A
 
 def rotate(A):
-    if not isEmpty(A):
-        if balance(A) == 2:
-            if balance(left(A)) >= 0:
-                A = rightRotate(A)
-            else:
-                setLeft(A, leftRotate(left(A)))
-                A = rightRotate(A)
-        if balance(A) == -2:
-            if(balance(right(A))) >= 0:
-                A = leftRotate(A)
-            else:
-                setRight(A, rightRotate(right(A)))
-                A = leftRotate(A)
+    bal = balance(A)
+    if bal == 2:
+        if balance(left(A)) >= 0:
+            A = rightRotate(A)
+        else:
+            setLeft(A, leftRotate(left(A)))
+            A = rightRotate(A)
+    elif bal == -2:
+        if balance(right(A)) <= 0:
+            A = leftRotate(A)
+        else:
+            setRight(A, rightRotate(right(A)))
+            A = leftRotate(A)
     return A
 
 def search(A, x):
@@ -99,12 +99,10 @@ def search(A, x):
 def insert(A, x):
     if isEmpty(A):
         addNode(A, x)
-    elif value(A) == x:
-        print("Value is already in the tree")
     elif x > value(A):
-        insert(right(A), x)
+        setRight(A,insert(right(A), x))
     else:
-        insert(left(A), x)
+        setLeft(A,insert(left(A), x))
     return rotate(A)
 
 def delete(A, x):
@@ -119,10 +117,16 @@ def delete(A, x):
             copyNode(A, left(A))
         else:
             currentMax = findMax(left(A))
-            setValue(A,y)
-            setLeft(left(A), delete(left(A), y))
+            setValue(A,currentMax)
+            setLeft(left(A), delete(left(A), currentMax))
     elif x < value(A):
         setLeft(A,delete(left(A), x))
     else:
         setLeft(A, delete(right(A), x))
     return rotate(A)
+
+A = createTree()
+C = [10,9,8,7,6,5,4,3,2,1]
+for i in range(len(C)):
+    A = insert(A, C[i])
+print(A)
