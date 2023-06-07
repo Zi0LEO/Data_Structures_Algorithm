@@ -12,10 +12,10 @@ def breadthVisit(G, startingNode):
     while len(queue) != 0:
         interestingNode = queue.pop(0)
         adjacentNodes = g.neighbors(G, interestingNode)
-        for node in adjacentNodes():
-            if not reached[node]:
-                queue.append(node)
-                reached[node] = True
+        for node in adjacentNodes:
+            if not reached[node[0]]:
+                queue.append(node[0])
+                reached[node[0]] = True
         edges.append(interestingNode)
     return edges
 
@@ -38,9 +38,13 @@ def breadthVisit1(G, startingNode):
                 pred[y] = nextNode
     return edges(pred)
 
+print("BREADTH VISIT: ")
 G = g.createGraph(5)
 e = [[1,3,1], [3,1,1], [1,2,1], [2,1,1], [1,4,1], [4,1,1], [3,4,1], [3,4,1], [2,4,1], [4,2,1], [2,0,1], [0,2,1], [4,0,1], [0,4,1]]
 for [x,y,w] in e:
     g.insertEdge(G, x,y,w)
 g.printGraph(G)
+print()
 print(breadthVisit1(G,3))
+print()
+print()
