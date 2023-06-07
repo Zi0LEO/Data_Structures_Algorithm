@@ -51,4 +51,3 @@ def neighbors(G, node):
     for x in G[node]:
         L.append(x)
     return L
-

@@ -35,3 +35,15 @@ def neighbors(G, node):
         if G[node][i] == 1:
             ret.append(i)
     return ret
+
+def outDegree(G, node):
+    ret = 0
+    for i in range(len(G)):
+        ret += G[node][i]
+    return ret
+
+def inDegree(G, node):
+    ret = 0
+    for i in range(len(G)):
+        ret += G[i][node]
+    return ret
