@@ -37,14 +37,3 @@ def breadthVisit1(G, startingNode):
                 queue.append(y)
                 pred[y] = nextNode
     return edges(pred)
-
-print("BREADTH VISIT: ")
-G = g.createGraph(5)
-e = [[1,3,1], [3,1,1], [1,2,1], [2,1,1], [1,4,1], [4,1,1], [3,4,1], [3,4,1], [2,4,1], [4,2,1], [2,0,1], [0,2,1], [4,0,1], [0,4,1]]
-for [x,y,w] in e:
-    g.insertEdge(G, x,y,w)
-g.printGraph(G)
-print()
-print(breadthVisit1(G,3))
-print()
-print()
