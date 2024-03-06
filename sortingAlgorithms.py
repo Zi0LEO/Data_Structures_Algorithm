@@ -29,6 +29,19 @@ def selectionSort(A):
 #1 a n - 1, dove n è la lunghzza della lista.
 #T(n) = O(n^2)
 
+def quickSort(A, start, end):
+    pivot = partiziona(A, start, end)
+    quickSort(A, start, pivot)
+    quickSort(A, pivot, end + 1)
+
+def partiziona(A, start, end):
+    i = start
+    j = end - 1
+    while i < j:
+        while A[start] < A[j]:
+            j -= 1
+        
+
 
 
 list = [6,3,8,2,5,9,1,4]
