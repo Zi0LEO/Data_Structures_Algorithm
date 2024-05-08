@@ -16,7 +16,7 @@ def weight(node):
     return node[1]
 
 def isEmpty(node):
-    return node[1] == 0;
+    return node[1] == 0
 
 def isLeaf(node):
     return isEmpty(leftSon(node)) and isEmpty(rightSon(node))
